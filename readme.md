@@ -33,3 +33,7 @@ Several application.properties are defined, each one with a specific database co
 ```bash
   mvn spring-boot:run -Drun.arguments=<groupId>,<artifactId>,<version> -Poracle
 ```
+
+## Postman collection
+
+A postman collection for testing the API is available inside postman directory.
