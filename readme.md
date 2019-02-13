@@ -18,7 +18,7 @@ The kjars must exists inside your local .m2 maven repository.
 ## Run and deploy a kjar
 
 ```bash
-  mvn spring-boot:run -Drun.arguments=<groupId>,<artifactId>,<version>
+  mvn spring-boot:run -Dorg.kie.server.startup.strategy=LocalContainersStartupStrategy
 ```
 
 ## Run and deploy a kjar with mysql dbms
