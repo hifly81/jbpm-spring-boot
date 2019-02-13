@@ -9,6 +9,11 @@ Several application.properties are defined, each one with a specific database co
  - postgres
  - oracle
 
+## Define the kie containers to deploy at startup
+
+The list of kie containers (groupId, artifactId version) to deploy at startup must be defined inside the new-hire-service.xml file.<br>
+The kjars must exists inside your local .m2 maven repository.
+
 
 ## Run and deploy a kjar
 
@@ -19,19 +24,19 @@ Several application.properties are defined, each one with a specific database co
 ## Run and deploy a kjar with mysql dbms
 
 ```bash
-  mvn spring-boot:run -Drun.arguments=<groupId>,<artifactId>,<version> -Pmysql
+  mvn spring-boot:run -Dorg.kie.server.startup.strategy=LocalContainersStartupStrategy -Pmysql
 ```
 
 ## Run and deploy a kjar with postgres dbms
 
 ```bash
-  mvn spring-boot:run -Drun.arguments=<groupId>,<artifactId>,<version> -Ppostgres
+  mvn spring-boot:run -Dorg.kie.server.startup.strategy=LocalContainersStartupStrategy -Ppostgres
 ```
 
 ## Run and deploy a kjar with oracle dbms
 
 ```bash
-  mvn spring-boot:run -Drun.arguments=<groupId>,<artifactId>,<version> -Poracle
+  mvn spring-boot:run -Dorg.kie.server.startup.strategy=LocalContainersStartupStrategy -Poracle
 ```
 
 ## Postman collection
