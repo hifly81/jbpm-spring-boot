@@ -31,6 +31,7 @@
             <artifactId>kie-server-spring-boot-starter</artifactId>
             <version>${version.org.kie}</version>
         </dependency>
+
         <!-- swagger -->
         <dependency>
             <groupId>org.apache.cxf</groupId>
@@ -155,18 +156,5 @@
 
     </profiles>
 
-    <repositories>
-        <repository>
-            <id>jboss-public-repository-group</id>
-            <name>JBoss Public Repository Group</name>
-            <url>https://repository.jboss.org/nexus/content/groups/public/</url>
-            <layout>default</layout>
-            <releases>
-                <updatePolicy>never</updatePolicy>
-            </releases>
-            <snapshots>
-                <updatePolicy>daily</updatePolicy>
-            </snapshots>
-        </repository>
-    </repositories>
+
 </project>
