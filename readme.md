@@ -2,7 +2,10 @@ jbpm-spring-boot example
 =============================
 
 Example of a jbpm service with spring boot.<br>
-The project is compose by a kjar, representing a sample new-hire BPMN process and by a kie-server running on spring boot.
+The project is compose by a kjar, representing a sample new-hire BPMN process and by a kie-server running on spring boot.<br>
+
+This is an image showing the BPMN process:
+![ScreenShot 1](images/newhire.png)
 
 ## Prerequisites
 
