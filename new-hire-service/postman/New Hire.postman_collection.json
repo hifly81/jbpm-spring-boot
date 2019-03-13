@@ -1,0 +1,196 @@
+{
+	"info": {
+		"_postman_id": "4e13c506-8758-429c-be90-bd8f9c6098e8",
+		"name": "New Hire",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Process Instances ",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"content\": \"test, gio\"\n}\n"
+				},
+				"url": {
+					"raw": "http://localhost:8090/pam/instances",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"pam",
+						"instances"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Tasks",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"content\": \"test, gio\"\n}\n"
+				},
+				"url": {
+					"raw": "http://localhost:8090/pam/tasks/252",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"pam",
+						"tasks",
+						"252"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Task complete",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{}\n"
+				},
+				"url": {
+					"raw": "http://localhost:8090/pam/tasks/1/user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"pam",
+						"tasks",
+						"1",
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Start",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n}\n"
+				},
+				"url": {
+					"raw": "http://localhost:8090/pam/start/com.redhat/new-hire/1.0.0/new-hire/Kermit",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"pam",
+						"start",
+						"com.redhat",
+						"new-hire",
+						"1.0.0",
+						"new-hire",
+						"Kermit"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Signal",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"content\": \"test, gio\"\n}\n"
+				},
+				"url": {
+					"raw": "http://localhost:8090/pam/signal/1/wait_checks",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"pam",
+						"signal",
+						"1",
+						"wait_checks"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Process Definitions ",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"content\": \"test, gio\"\n}\n"
+				},
+				"url": {
+					"raw": "http://localhost:8090/pam/definitions/com.redhat/new-hire/1.0.0",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"pam",
+						"definitions",
+						"com.redhat",
+						"new-hire",
+						"1.0.0"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
