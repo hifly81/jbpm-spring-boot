@@ -23,7 +23,7 @@ You need to define these two properties for the business central in order to mon
   mvn clean install
 ```
 
-## Define the kie containers to deploy at startup
+## Define the kie server properties
 
 The list of kie containers (groupId, artifactId version) to deploy at startup must be defined inside the new-hire-service.xml file.<br>
 The kjars must exists inside your local .m2 maven repository.
@@ -33,6 +33,13 @@ Several application.properties are defined, each one with a specific database co
  - mysql
  - postgres
  - oracle
+
+You can configure the user/password to connect with the controller (Business Central) through the following system properties inside the new-hire-service.xml file:
+
+```bash
+ org.kie.server.controller.user=<user>
+ org.kie.server.controller.pwd=<password>
+```
 
 
 ## Run a kie-server and deploy a kjar

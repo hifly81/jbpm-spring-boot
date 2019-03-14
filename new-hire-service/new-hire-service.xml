@@ -1,6 +1,6 @@
 <kie-server-state>
   <controllers>
-    <string>http://localhost:8080/business-central/rest/controller</string>
+    <string>ws://localhost:8080/business-central/websocket/controller</string>
   </controllers>
   <configuration>
     <configItems>
@@ -21,7 +21,7 @@
       </config-item>
       <config-item>
         <name>org.kie.server.controller</name>
-        <value>http://localhost:8080/business-central/rest/controller</value>
+        <value>ws://localhost:8080/business-central/websocket/controller</value>
         <type>java.lang.String</type>
       </config-item>
       <config-item>

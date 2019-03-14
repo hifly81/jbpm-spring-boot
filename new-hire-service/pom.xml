@@ -15,7 +15,10 @@
     </parent>
 
     <properties>
-        <version.org.kie>7.14.0.Final-redhat-00002</version.org.kie>
+        <!-- Red Hat Kie version-->
+        <!--<version.org.kie>7.14.0.Final-redhat-00002</version.org.kie>-->
+        <!-- jbpm upstream version -->
+        <version.org.kie>7.14.0.Final</version.org.kie>
         <maven.compiler.target>1.8</maven.compiler.target>
         <maven.compiler.source>1.8</maven.compiler.source>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -33,9 +36,9 @@
         </dependency>
 
         <dependency>
-            <groupId>org.apache.kafka</groupId>
-            <artifactId>kafka_2.12</artifactId>
-            <version>1.1.0</version>
+            <groupId>org.kie.server</groupId>
+            <artifactId>kie-server-controller-websocket-client</artifactId>
+            <version>${version.org.kie}</version>
         </dependency>
 
         <!-- swagger -->
