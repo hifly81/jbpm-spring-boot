@@ -19,6 +19,7 @@
         <!--<version.org.kie>7.14.0.Final-redhat-00002</version.org.kie>-->
         <!-- jbpm upstream version -->
         <version.org.kie>7.14.0.Final</version.org.kie>
+        <version.spring-boot>1.5.12.RELEASE</version.spring-boot>
         <maven.compiler.target>1.8</maven.compiler.target>
         <maven.compiler.source>1.8</maven.compiler.source>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

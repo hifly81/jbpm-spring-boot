@@ -17,7 +17,7 @@ public class DefaultWebSecurityConfig extends WebSecurityConfigurerAdapter {
         http
         .csrf().disable()
         .authorizeRequests()
-        .antMatchers("/rest/*").authenticated()
+        .antMatchers("/rest/**").authenticated()
         .and()
         .httpBasic();
     }

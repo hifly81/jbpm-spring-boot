@@ -8,35 +8,21 @@
 		{
 			"name": "Process Instances ",
 			"request": {
-				"method": "GET",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n\t\"content\": \"test, gio\"\n}\n"
-				},
-				"url": {
-					"raw": "http://localhost:8090/pam/instances",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8090",
-					"path": [
-						"pam",
-						"instances"
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "user",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "user",
+							"type": "string"
+						}
 					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Tasks",
-			"request": {
+				},
 				"method": "GET",
 				"header": [
 					{
@@ -49,16 +35,18 @@
 					"raw": "{\n\t\"content\": \"test, gio\"\n}\n"
 				},
 				"url": {
-					"raw": "http://localhost:8090/pam/tasks/252",
+					"raw": "http://localhost:8090/rest/server/queries/processes/instances",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8090",
 					"path": [
-						"pam",
-						"tasks",
-						"252"
+						"rest",
+						"server",
+						"queries",
+						"processes",
+						"instances"
 					]
 				}
 			},
@@ -67,6 +55,21 @@
 		{
 			"name": "Task complete",
 			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "user",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "user",
+							"type": "string"
+						}
+					]
+				},
 				"method": "POST",
 				"header": [
 					{
@@ -79,13 +82,14 @@
 					"raw": "{}\n"
 				},
 				"url": {
-					"raw": "http://localhost:8090/pam/tasks/1/user",
+					"raw": "http://localhost:8090/rest/pam/tasks/1/user",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8090",
 					"path": [
+						"rest",
 						"pam",
 						"tasks",
 						"1",
@@ -98,6 +102,21 @@
 		{
 			"name": "Start",
 			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "user",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "user",
+							"type": "string"
+						}
+					]
+				},
 				"method": "POST",
 				"header": [
 					{
@@ -107,23 +126,23 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n}\n"
+					"raw": "{\r\n}"
 				},
 				"url": {
-					"raw": "http://localhost:8090/pam/start/com.redhat/new-hire/1.0.0/new-hire/Kermit",
+					"raw": "http://localhost:8090/rest/server/containers/com.redhat:new-hire:1.0.0/processes/new-hire/instances",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8090",
 					"path": [
-						"pam",
-						"start",
-						"com.redhat",
+						"rest",
+						"server",
+						"containers",
+						"com.redhat:new-hire:1.0.0",
+						"processes",
 						"new-hire",
-						"1.0.0",
-						"new-hire",
-						"Kermit"
+						"instances"
 					]
 				}
 			},
@@ -132,6 +151,21 @@
 		{
 			"name": "Signal",
 			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "user",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "user",
+							"type": "string"
+						}
+					]
+				},
 				"method": "POST",
 				"header": [
 					{
@@ -144,16 +178,21 @@
 					"raw": "{\n\t\"content\": \"test, gio\"\n}\n"
 				},
 				"url": {
-					"raw": "http://localhost:8090/pam/signal/1/wait_checks",
+					"raw": "http://localhost:8090/rest/server/containers/com.redhat:new-hire:1.0.0/processes/instances/1/signal/wait_checks",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8090",
 					"path": [
-						"pam",
-						"signal",
+						"rest",
+						"server",
+						"containers",
+						"com.redhat:new-hire:1.0.0",
+						"processes",
+						"instances",
 						"1",
+						"signal",
 						"wait_checks"
 					]
 				}
@@ -161,8 +200,23 @@
 			"response": []
 		},
 		{
-			"name": "Process Definitions ",
+			"name": "Process Definitions",
 			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "user",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "user",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
 				"header": [
 					{
@@ -175,18 +229,66 @@
 					"raw": "{\n\t\"content\": \"test, gio\"\n}\n"
 				},
 				"url": {
-					"raw": "http://localhost:8090/pam/definitions/com.redhat/new-hire/1.0.0",
+					"raw": "http://localhost:8090/rest/server/containers/com.redhat:new-hire:1.0.0/processes/definitions/new-hire/",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8090",
 					"path": [
-						"pam",
+						"rest",
+						"server",
+						"containers",
+						"com.redhat:new-hire:1.0.0",
+						"processes",
 						"definitions",
-						"com.redhat",
 						"new-hire",
-						"1.0.0"
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List Containers",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "user",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "user",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"bcHost\": \"localhost\",\n    \"bcPort\": 8080,\n    \"oldDeployment\": \"com.redhat.bpm:timer-migration:1.0\",\n    \"newDeployment\": \"com.redhat.bpm:timer-migration2\",\n    \"nodeMappging\": {\n    },\n    \"processDefinitionMapping\": {\n    }\n}\n"
+				},
+				"url": {
+					"raw": "http://localhost:8090/rest/server/containers",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"rest",
+						"server",
+						"containers"
 					]
 				}
 			},
