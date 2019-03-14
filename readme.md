@@ -42,6 +42,10 @@ You can configure the user/password to connect with the controller (Business Cen
 ```
 
 
+## Custom Rest endpoint
+
+A custom rest endpoint, registered under path /rest/pam is available and it adds additional APIs to the kie server.
+
 ## Run a kie-server and deploy a kjar
 
 ```bash
