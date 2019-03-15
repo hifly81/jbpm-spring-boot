@@ -7,7 +7,7 @@ The project is compose by a kjar, representing a sample new-hire BPMN process an
 Kie Server Rest API are available at:<br>
 http://localhost:8090/rest 
 
-Kie Server Prmetheus metrics are available at:<br>
+Kie Server Prometheus metrics are available at:<br>
 http://localhost:8090/metrics <br><br>
 
 This is an image showing the BPMN process:
