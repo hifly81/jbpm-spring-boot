@@ -4,6 +4,12 @@ jbpm-spring-boot example
 Example of a jbpm service with spring boot.<br>
 The project is compose by a kjar, representing a sample new-hire BPMN process and by a kie-server running on spring boot.<br>
 
+Kie Server Rest API are available at:<br>
+http://localhost:8090/rest 
+
+Kie Server Prmetheus metrics are available at:<br>
+http://localhost:8090/metrics <br><br>
+
 This is an image showing the BPMN process:
 ![ScreenShot 1](images/newhire.png)
 
@@ -73,6 +79,11 @@ A custom rest endpoint, registered under path /rest/pam is available and it adds
   cd new-hire-service
   mvn spring-boot:run -Dorg.kie.server.startup.strategy=LocalContainersStartupStrategy -Poracle
 ```
+
+## Prometheus metrics
+
+Process instances and human tasks basic metrics are exposed using prometheus; they are available at url:<br>
+http://localhost:8090/metrics 
 
 ## Postman collection
 
