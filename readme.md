@@ -40,6 +40,8 @@ ocp_user= --> ocp user, example: developer
 
 according with your values.
 
+Launch the bootstrap script to create your namespace:
+
 ```bash
 cd new-hire-service/openshift/
 ./launch.sh
