@@ -1,8 +1,8 @@
 #!/bin/bash
 
-ocp_admin_url=<changeme>
-ocp_docker_registry=<changeme>
-ocp_user=<changeme>
+ocp_admin_url=
+ocp_docker_registry=
+ocp_user=
 ocp_user_token=$(oc whoami -t)
 ocp_namespace=new-hire
 docker_tag_name=jbpm-console-new-hire
@@ -55,3 +55,18 @@ oc new-app --file=template.yml
 
 #cleanup
 rm -rf new-hire-service-1.0-SNAPSHOT.jar
+
+
+############################ PROMETHEUS
+cd ../prometheus
+
+#create config map
+oc apply -f prometheus-config-map.yml
+
+#create prometheus application
+oc import-image my-openshift3/prometheus --from=registry.access.redhat.com/openshift3/prometheus --confirm
+oc new-app prometheus:latest
+oc set volumes dc/prometheus --add --overwrite=true --name=prometheus-2 --mount-path=/etc/prometheus -t configmap --configmap-name=prometheus-config-map
+
+#create route for business central application
+oc expose service prometheus --port=9090 --hostname=prometheus.example.com

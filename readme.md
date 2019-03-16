@@ -52,17 +52,19 @@ When completed, verify that your cluster contains the following pods with state 
 ```bash
 oc get pods
 NAME                            READY     STATUS    RESTARTS   AGE
-jbpm-console-new-hire-1-gkq5l   1/1       Running   0          14m
-new-hire-service-1-wj927        1/1       Running   0          13m
+jbpm-console-new-hire-1-78bxg   1/1       Running   0          2m
+new-hire-service-1-8qltt        1/1       Running   0          1m
+prometheus-1-kjlbs              1/1       Running   0          1m
 ```
 
-Verify that two routes are created:
+Verify that the following routes are created:
 
 ```bash
 oc get routes
 NAME                    HOST/PORT                      PATH      SERVICES                PORT      TERMINATION   WILDCARD
 jbpm-console-new-hire   business-central.example.com             jbpm-console-new-hire   8080                    None
 new-hire-service        new-hire-service.example.com             new-hire-service        8090                    None
+prometheus              prometheus.example.com                   prometheus              9090                    None
 ```
 
 Business central (user/user) will be available at url:<br>
@@ -71,10 +73,16 @@ http://business-central.example.com
 Kie server (user/user) will be available at url:<br>
 http://new-hire-service.example.com
 
+Prometheus will be available at url:<br>
+http://prometheus.example.com
+
 ### Prometheus metrics
 
 Process instances and human tasks basic metrics are exposed using prometheus; they are available at url:<br>
 http://new-hire-service.example.com/metrics
+
+Prometheus is already configured to scrape these metrics; verify at url:<br>
+http://prometheus.example.com/targets
 
 ### Postman collection
 
