@@ -70,3 +70,8 @@ oc set volumes dc/prometheus --add --overwrite=true --name=prometheus-2 --mount-
 
 #create route for business central application
 oc expose service prometheus --port=9090 --hostname=prometheus.example.com
+
+
+############################ GRAFANA
+cd ../grafana
+oc new-app --file=grafana.yml

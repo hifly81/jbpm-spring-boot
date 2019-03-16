@@ -20,6 +20,12 @@ You need Docker on your machine to build the images.
 
 ### Install on OpenShift
 
+When deployed on OpenShift, you will have a complete namespace with:<br>
+ - Business Central
+ - Kie Server
+ - Prometheus, grabbing Kie Server metrics
+ - Grafana, showing Kie Server Dashboard
+
 The bash script new-hire-service/openshift/launch.sh will create an OpenShift project named "new-hire"
 
 You only need the OpenShift admin node url, an Openshift user and the endpoint of the Openshift registry.
@@ -40,6 +46,17 @@ ocp_user= --> ocp user, example: developer
 
 according with your values.
 
+Business central image is based on official Red Hat Process Automatation Manager Business Central image:<br>
+https://registry.access.redhat.com/rhpam-7/rhpam72-businesscentral-openshift
+
+Kie server image is based on a standard openjdk image.
+
+Promethues image is taken form Red Hat Container Catalog:<br>
+https://access.redhat.com/containers/?tab=overview#/registry.access.redhat.com/openshift3/prometheus
+
+Grafana image is taken from:<br>
+https://hub.docker.com/r/wkulhanek/grafana/
+
 Launch the bootstrap script to create your namespace:
 
 ```bash
@@ -52,9 +69,10 @@ When completed, verify that your cluster contains the following pods with state 
 ```bash
 oc get pods
 NAME                            READY     STATUS    RESTARTS   AGE
-jbpm-console-new-hire-1-78bxg   1/1       Running   0          2m
-new-hire-service-1-8qltt        1/1       Running   0          1m
-prometheus-1-kjlbs              1/1       Running   0          1m
+grafana-1-t7m5x                 1/1       Running   0          1m
+jbpm-console-new-hire-1-xbp4h   1/1       Running   0          1m
+new-hire-service-1-g7ml9        1/1       Running   0          1m
+prometheus-1-dgbnq              1/1       Running   0          1m
 ```
 
 Verify that the following routes are created:
@@ -62,9 +80,10 @@ Verify that the following routes are created:
 ```bash
 oc get routes
 NAME                    HOST/PORT                      PATH      SERVICES                PORT      TERMINATION   WILDCARD
-jbpm-console-new-hire   business-central.example.com             jbpm-console-new-hire   8080                    None
-new-hire-service        new-hire-service.example.com             new-hire-service        8090                    None
-prometheus              prometheus.example.com                   prometheus              9090                    None
+grafana                 ClusterIP   172.30.137.176   <none>        3000/TCP                              1m
+jbpm-console-new-hire   ClusterIP   172.30.196.143   <none>        8001/TCP,8080/TCP,8443/TCP,8778/TCP   2m
+new-hire-service        ClusterIP   172.30.87.180    <none>        8090/TCP                              1m
+prometheus              ClusterIP   172.30.170.212   <none>        9090/TCP                              1m
 ```
 
 Business central (user/user) will be available at url:<br>
@@ -75,6 +94,15 @@ http://new-hire-service.example.com
 
 Prometheus will be available at url:<br>
 http://prometheus.example.com
+
+Grafana (admin/admin) will be available at url:<br>
+http://grafana.example.com
+
+Configure your host file (or DNS) for domain .example.com.
+
+Grafana dashboard for kie server will look like:<br>
+This is an image showing the BPMN process:
+![ScreenShot 1](images/kieserver.png)
 
 ### Prometheus metrics
 
