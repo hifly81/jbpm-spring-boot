@@ -2,7 +2,7 @@ jbpm-spring-boot example
 =============================
 
 Example of a jbpm service with spring boot.<br>
-The project is compose by a kjar, representing a sample new-hire BPMN process and by a kie-server running on spring boot.<br>
+The project is composed by a kjar, representing a sample new-hire BPMN process and by a kie-server running on spring boot.<br>
 
 This is an image showing the BPMN process:
 ![ScreenShot 1](images/newhire.png)
@@ -111,6 +111,25 @@ http://new-hire-service.example.com/metrics
 
 Prometheus is already configured to scrape these metrics; verify at url:<br>
 http://prometheus.example.com/targets
+
+This is the list of metrics for kie server available:
+ - Number of process instances (kie_server_process_instances)
+ - Number of process instances active (kie_server_process_instances_active)
+ - Number of process instances pending (kie_server_process_instances_pending)
+ - Number of process instances suspended (kie_server_process_instances_suspended)
+ - Number of process instances aborted (kie_server_process_instances_aborted)
+ - Number of process instances completed (kie_server_process_instances_completed)
+ - Number of tasks (kie_server_tasks)
+ - Number of created tasks (kie_server_tasks_created)
+ - Number of ready tasks (kie_server_tasks_ready)
+ - Number of reserved tasks (kie_server_tasks_reserved)
+ - Number of inprogress tasks (kie_server_tasks_inprogress)
+ - Number of suspended tasks (kie_server_tasks_suspended)
+ - Number of completed tasks (kie_server_tasks_completed)
+ - Number of failed tasks (kie_server_tasks_failed)
+ - Number of error tasks (kie_server_tasks_error)
+ - Number of exited tasks (kie_server_tasks_exited)
+ - Number of obsolete tasks (kie_server_tasks_obsolete)   
 
 ### Postman collection
 
