@@ -45,7 +45,7 @@ objects:
     - annotations: null
       from:
         kind: DockerImage
-        name: kie-server-new-hire:latest
+        name: kie-server-new-hire:1.0
       generation: 1
       importPolicy:
         insecure: true
@@ -111,5 +111,5 @@ objects:
          - new-hire-service
          from:
            kind: ImageStreamTag
-           name: 'kie-server-new-hire:latest'
+           name: 'kie-server-new-hire:1.0'
        type: ImageChange

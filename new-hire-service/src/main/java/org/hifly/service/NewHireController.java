@@ -1,5 +1,6 @@
 package org.hifly.service;
 
+import io.swagger.annotations.*;
 import org.jbpm.services.api.UserTaskService;
 import org.kie.api.task.model.Status;
 import org.kie.api.task.model.Task;
@@ -14,6 +15,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+@Api(value = "New Hire Additional Endpoints", produces = MediaType.APPLICATION_JSON)
 @Path("pam")
 public class NewHireController {
 
@@ -24,12 +26,16 @@ public class NewHireController {
     private UserTaskService userTaskService;
 
 
+    @ApiOperation(value = "Complete a task in Ready or Reserved state")
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "Task completed")
+    })
     @POST
     @Path(value = "/tasks/{taskId}/{actor}")
     @Produces(MediaType.APPLICATION_JSON)
     public Response autoCompleteTask(
-            @PathParam("taskId") Long taskId,
-            @PathParam("actor") String actor) {
+            @ApiParam(value = "task id", required = true) @PathParam("taskId") Long taskId,
+            @ApiParam(value = "name of the actor", required = true) @PathParam("actor") String actor) {
         Task task = userTaskService.getTask(taskId);
         if(task != null) {
             LOGGER.info("Task {} status {}", task.getId(), task.getTaskData().getStatus());
