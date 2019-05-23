@@ -1,6 +1,6 @@
 <kie-server-state>
   <controllers>
-    <string>ws://localhost:8080/business-central/websocket/controller</string>
+    <string>http://localhost:8080/business-central/rest/controller</string>
   </controllers>
   <configuration>
     <configItems>
@@ -21,7 +21,7 @@
       </config-item>
       <config-item>
         <name>org.kie.server.controller</name>
-        <value>ws://localhost:8080/business-central/websocket/controller</value>
+        <value>http://localhost:8080/business-central/rest/controller</value>
         <type>java.lang.String</type>
       </config-item>
       <config-item>
@@ -71,7 +71,7 @@
         </config-item>
         <config-item>
           <name>RuntimeStrategy</name>
-          <value>PER_PROCESS_INSTANCE</value>
+          <value>SINGLETON</value>
           <type>BPM</type>
         </config-item>
       </configItems>
