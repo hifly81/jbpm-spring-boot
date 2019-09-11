@@ -28,8 +28,5 @@ public class DefaultWebSecurityConfig extends WebSecurityConfigurerAdapter {
         auth.inMemoryAuthentication().withUser("wbadmin").password("{noop}wbadmin").roles("admin");
         auth.inMemoryAuthentication().withUser("kieserver").password("{noop}kieserver1!").roles("kie-server");
 
-        /*auth.inMemoryAuthentication().withUser("user").password("user").roles("kie-server").roles("rest-all").roles("hr");
-        auth.inMemoryAuthentication().withUser("wbadmin").password("wbadmin").roles("admin");
-        auth.inMemoryAuthentication().withUser("kieserver").password("kieserver1!").roles("kie-server");*/
     }
 }
