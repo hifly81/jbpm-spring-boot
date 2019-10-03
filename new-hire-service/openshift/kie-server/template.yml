@@ -26,7 +26,6 @@ objects:
   metadata:
     name: new-hire-service
   spec:
-    host: new-hire-service.example.com
     port:
       targetPort: 8090
     to:
@@ -87,7 +86,7 @@ objects:
          containers:
          - env:
            - name: JAVA_OPTIONS
-             value: "-Dspring.profiles.active=openshift -Dorg.kie.server.startup.strategy=LocalContainersStartupStrategy -Dorg.kie.server.controller=ws://jbpm-console-new-hire:8080/websocket/controller -Dorg.kie.server.controller.user=user -Dorg.kie.server.controller.password=user -Dorg.kie.server.id=new-hire-service -Dorg.kie.server.location=http://new-hire-service:8090/rest/server -Dkie.maven.offline.force=true -Dkie.maven.settings.custom=/tmp/maven/repository/settings.xml -Dorg.guvnor.m2repo.dir=/tmp/maven/repository"
+             value: "-Dspring.profiles.active=openshift -Dorg.kie.server.startup.strategy=LocalContainersStartupStrategy -Dorg.kie.server.id=new-hire-service -Dkie.maven.settings.custom=/tmp/maven/repository/settings.xml -Dorg.guvnor.m2repo.dir=/tmp/maven/repository"
            image: kie-server-new-hire:latest
            name: new-hire-service
            volumeMounts:

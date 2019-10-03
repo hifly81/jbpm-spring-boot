@@ -1,6 +1,6 @@
 <kie-server-state>
   <controllers>
-    <string>ws://jbpm-console-new-hire:8080/websocket/controller</string>
+    <string>http://jbpm-console-new-hire:8080/rest/controller</string>
   </controllers>
   <configuration>
     <configItems>
@@ -15,28 +15,23 @@
         <type>java.lang.String</type>
       </config-item>
       <config-item>
-        <name>org.kie.executor.running.max</name>
-        <value>1</value>
+        <name>org.kie.server.user</name>
+        <value>user</value>
+        <type>java.lang.String</type>
+      </config-item>
+      <config-item>
+        <name>org.kie.server.pwd</name>
+        <value>user</value>
         <type>java.lang.String</type>
       </config-item>
       <config-item>
         <name>org.kie.server.controller</name>
-        <value>ws://jbpm-console-new-hire:8080/websocket/controller</value>
-        <type>java.lang.String</type>
-      </config-item>
-      <config-item>
-        <name>org.kie.server.id</name>
-        <value>new-hire-service</value>
+        <value>http://jbpm-console-new-hire:8080/rest/controller</value>
         <type>java.lang.String</type>
       </config-item>
       <config-item>
         <name>org.kie.server.location</name>
         <value>http://new-hire-service:8090/rest/server</value>
-        <type>java.lang.String</type>
-      </config-item>
-      <config-item>
-        <name>org.kie.server.startup.strategy</name>
-        <value>LocalContainersStartupStrategy</value>
         <type>java.lang.String</type>
       </config-item>
     </configItems>

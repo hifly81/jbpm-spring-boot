@@ -15,10 +15,10 @@ oc project ${ocp_namespace}
 
 #create business central application
 oc import-image jbpm-console-new-hire:1.0 --from=hifly81/jbpm-console-new-hire:1.0 --confirm
-oc new-app jbpm-console-new-hire:1.0 -e JAVA_OPTS_APPEND="-Dorg.kie.server.user=user -Dorg.kie.server.password=user"
+oc new-app jbpm-console-new-hire:1.0 -e JAVA_OPTS_APPEND="-Dorg.kie.server.user=user -Dorg.kie.server.password=user -Dorg.kie.server.id=new-hire-service -Dorg.kie.server.location=http://new-hire-service:8090/rest/server"
 
 #create route for business central application
-oc expose service jbpm-console-new-hire --port=8080 --hostname=business-central.example.com
+oc expose service jbpm-console-new-hire --port=8080
 
 ############################ KIE SERVER
 
