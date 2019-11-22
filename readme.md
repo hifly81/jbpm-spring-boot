@@ -180,7 +180,7 @@ You can configure the user/password to connect with the controller (Business Cen
 
 A custom rest endpoint, registered under path /rest/pam is available and it adds additional APIs to the kie server.
 
-### Run a kie-server and deploy a kjar
+### Run a kie-server and deploy a kjar with h2 dbms -Dspring.profiles.active=h2
 
 ```bash
   cd new-hire-service
@@ -191,21 +191,14 @@ A custom rest endpoint, registered under path /rest/pam is available and it adds
 
 ```bash
   cd new-hire-service
-  mvn spring-boot:run -Dorg.kie.server.startup.strategy=LocalContainersStartupStrategy -Pmysql
-```
-
-### Run a kie-server and deploy a kjar with postgres dbms
-
-```bash
-  cd new-hire-service
-  mvn spring-boot:run -Dorg.kie.server.startup.strategy=LocalContainersStartupStrategy -Ppostgres
+  mvn spring-boot:run -Dorg.kie.server.startup.strategy=LocalContainersStartupStrategy -Dspring.profiles.active=mysql
 ```
 
 ### Run a kie-server and deploy a kjar with oracle dbms
 
 ```bash
   cd new-hire-service
-  mvn spring-boot:run -Dorg.kie.server.startup.strategy=LocalContainersStartupStrategy -Poracle
+  mvn spring-boot:run -Dorg.kie.server.startup.strategy=LocalContainersStartupStrategy -Dspring.profiles.active=oracle
 ```
 
 ### Prometheus metrics
