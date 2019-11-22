@@ -6,5 +6,5 @@ ${Ansi.GREEN}  | || |_/ /| |    | |  | |  | |_/ /| |_| |\__ \| || | | ||  __/\__
 ${Ansi.GREEN}  | |\____/ \_|    \_|  |_/  \____/  \__,_||___/|_||_| |_| \___||___/|___/  \_| |_/| .__/ | .__/ |_||_| \___|\__,_| \__||_| \___/ |_| |_|
 ${Ansi.GREEN} _/ |                                                                              | |    | |
 ${Ansi.GREEN}|__/                                                                               |_|    |_|
-${Ansi.RED}                                                    new-hire-service :: v.1.0-SNAPSHOT
+${Ansi.RED}                                                    new-hire-service:: v.1.0-SNAPSHOT
 
