@@ -1,0 +1,6 @@
+spec:
+  port:
+    targetPort: 8090
+  to:
+    kind: Service
+    name: new-hire-service

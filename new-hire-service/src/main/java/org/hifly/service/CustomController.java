@@ -15,11 +15,11 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-@Api(value = "New Hire Additional Endpoints", produces = MediaType.APPLICATION_JSON)
+@Api(value = "Additional Endpoints", produces = MediaType.APPLICATION_JSON)
 @Path("pam")
-public class NewHireController {
+public class CustomController {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(NewHireController.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(CustomController.class);
 
 
     @Autowired

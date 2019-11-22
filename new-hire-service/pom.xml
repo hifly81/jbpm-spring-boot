@@ -4,30 +4,30 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.hifly</groupId>
     <artifactId>new-hire-service</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0.0</version>
     <packaging>jar</packaging>
     <name>new-hire-service</name>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>1.5.12.RELEASE</version>
+        <version>2.1.1.RELEASE</version>
     </parent>
 
     <properties>
-        <!-- Red Hat Kie version-->
-        <!--<version.org.kie>7.14.0.Final-redhat-00002</version.org.kie>-->
-        <!-- jbpm upstream version -->
-        <version.org.kie>7.14.0.Final</version.org.kie>
-        <version.spring-boot>1.5.12.RELEASE</version.spring-boot>
+        <version.org.kie>7.23.0.Final-redhat-00003</version.org.kie>
+        <narayana.version>5.9.0.Final</narayana.version>
+        <fabric8.version>3.5.40</fabric8.version>
+        <fabric8-maven-plugin.version>3.5.38</fabric8-maven-plugin.version>
+        <fabric8.resources.limits.memory>1Gi</fabric8.resources.limits.memory>
+        <fabric8.resources.limits.cpu>1</fabric8.resources.limits.cpu>
+        <fabric8.resources.requests.memory>1Gi</fabric8.resources.requests.memory>
+        <fabric8.resources.requests.cpu>1</fabric8.resources.requests.cpu>
+
         <maven.compiler.target>1.8</maven.compiler.target>
         <maven.compiler.source>1.8</maven.compiler.source>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <narayana.version>5.9.0.Final</narayana.version>
-        <fabric8.version>3.5.40</fabric8.version>
-        <prometheus.version>0.6.0</prometheus.version>
-        <fabric8-maven-plugin.version>3.5.38</fabric8-maven-plugin.version>
     </properties>
 
     <dependencies>
@@ -39,53 +39,28 @@
         </dependency>
 
         <dependency>
-            <groupId>org.kie.server</groupId>
-            <artifactId>kie-server-controller-websocket-client</artifactId>
-            <version>${version.org.kie}</version>
-        </dependency>
-
-        <!-- prometheus -->
-        <dependency>
-            <groupId>io.prometheus</groupId>
-            <artifactId>simpleclient_spring_boot</artifactId>
-            <version>${prometheus.version}</version>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-core</artifactId>
         </dependency>
 
         <dependency>
-            <groupId>io.prometheus</groupId>
-            <artifactId>simpleclient_hotspot</artifactId>
-            <version>${prometheus.version}</version>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
         </dependency>
 
         <dependency>
-            <groupId>io.prometheus</groupId>
-            <artifactId>simpleclient_servlet</artifactId>
-            <version>${prometheus.version}</version>
-        </dependency>
-
-        <!-- swagger -->
-        <dependency>
-            <groupId>org.webjars</groupId>
-            <artifactId>swagger-ui</artifactId>
-            <version>2.2.10</version>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-annotations</artifactId>
         </dependency>
 
         <dependency>
-            <groupId>org.apache.cxf</groupId>
-            <artifactId>cxf-rt-rs-service-description-swagger</artifactId>
-            <version>3.1.11</version>
+            <groupId>com.fasterxml.jackson.dataformat</groupId>
+            <artifactId>jackson-dataformat-xml</artifactId>
         </dependency>
 
         <dependency>
-            <groupId>io.swagger</groupId>
-            <artifactId>swagger-jaxrs</artifactId>
-            <version>1.5.20</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>javax.ws.rs</groupId>
-                    <artifactId>jsr311-api</artifactId>
-                </exclusion>
-            </exclusions>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
         </dependency>
 
         <dependency>
@@ -110,106 +85,64 @@
 
         <profile>
             <id>h2</id>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
-            <dependencies>
-                <dependency>
-                    <groupId>com.h2database</groupId>
-                    <artifactId>h2</artifactId>
-                </dependency>
-            </dependencies>
         </profile>
 
         <profile>
             <id>mysql</id>
-            <activation>
-                <property>
-                    <name>mysql</name>
-                </property>
-            </activation>
             <dependencies>
                 <dependency>
                     <groupId>mysql</groupId>
                     <artifactId>mysql-connector-java</artifactId>
-                </dependency>
-                <dependency>
-                    <groupId>com.h2database</groupId>
-                    <artifactId>h2</artifactId>
-                    <scope>test</scope>
-                </dependency>
-            </dependencies>
-        </profile>
-
-        <profile>
-            <id>postgres</id>
-            <activation>
-                <property>
-                    <name>postgres</name>
-                </property>
-            </activation>
-            <dependencies>
-                <dependency>
-                    <groupId>org.postgresql</groupId>
-                    <artifactId>postgresql</artifactId>
-                </dependency>
-                <dependency>
-                    <groupId>com.h2database</groupId>
-                    <artifactId>h2</artifactId>
-                    <scope>test</scope>
-                </dependency>
-            </dependencies>
-        </profile>
-
-        <profile>
-            <id>oracle</id>
-            <activation>
-                <property>
-                    <name>oracle</name>
-                </property>
-            </activation>
-            <dependencies>
-                <dependency>
-                    <groupId>com.oracle</groupId>
-                    <artifactId>ojdbc6</artifactId>
-                    <version>12.1.0.1</version>
-                </dependency>
-                <dependency>
-                    <groupId>org.apache.commons</groupId>
-                    <artifactId>commons-dbcp2</artifactId>
-                    <version>2.4.0</version>
-                </dependency>
-                <dependency>
-                    <groupId>com.h2database</groupId>
-                    <artifactId>h2</artifactId>
-                    <scope>test</scope>
                 </dependency>
             </dependencies>
         </profile>
 
         <profile>
             <id>openshift</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+
             <dependencies>
                 <dependency>
-                    <groupId>com.h2database</groupId>
-                    <artifactId>h2</artifactId>
+                    <groupId>mysql</groupId>
+                    <artifactId>mysql-connector-java</artifactId>
                 </dependency>
             </dependencies>
+
             <build>
                 <plugins>
                     <plugin>
                         <groupId>io.fabric8</groupId>
                         <artifactId>fabric8-maven-plugin</artifactId>
-                        <version>${fabric8-maven-plugin.version}</version>
-                        <executions>
-                            <execution>
-                                <id>fmp</id>
-                                <goals>
-                                    <goal>resource</goal>
-                                    <goal>build</goal>
-                                </goals>
-                            </execution>
-                        </executions>
+                        <version>${fabric8.version}</version>
+                        <configuration>
+                            <buildStrategy>docker</buildStrategy>
+                            <images>
+                                <image>
+                                    <name>new-hire-service:1.0.0</name>
+                                    <build>
+                                        <dockerFileDir>${project.basedir}</dockerFileDir>
+                                        <dockerFile>Dockerfile</dockerFile>
+                                        <filter>@</filter>
+                                        <assembly>
+                                            <mode>dir</mode>
+                                            <name>target</name>
+                                            <inline xmlns="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.2"
+                                                    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                                    xsi:schemaLocation="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.2 http://maven.apache.org/xsd/assembly-1.1.2.xsd">
+                                                <files>
+                                                    <file>
+                                                        <source>${project.basedir}/target/${project.build.finalName}.jar</source>
+                                                        <outputDirectory>./</outputDirectory>
+                                                    </file>
+                                                </files>
+                                            </inline>
+                                        </assembly>
+                                    </build>
+                                </image>
+                            </images>
+                        </configuration>
                     </plugin>
                 </plugins>
             </build>

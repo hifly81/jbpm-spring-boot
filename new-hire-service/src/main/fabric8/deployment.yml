@@ -1,0 +1,90 @@
+apiVersion: apps.openshift.io/v1
+kind: DeploymentConfig
+metadata:
+  annotations:
+  labels:
+    app: new-hire-service
+  name: new-hire-service
+spec:
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    app: new-hire-service
+    deploymentconfig: new-hire-service
+  strategy:
+    activeDeadlineSeconds: 21600
+    resources: {}
+    rollingParams:
+      intervalSeconds: 1
+      maxSurge: 25%
+      maxUnavailable: 25%
+      timeoutSeconds: 600
+      updatePeriodSeconds: 1
+    type: Rolling
+  template:
+    metadata:
+      annotations:
+      creationTimestamp: null
+      labels:
+        app: new-hire-service
+        deploymentconfig: new-hire-service
+    spec:
+      containers:
+        - env:
+            - name: JAVA_OPTIONS
+              value: "-Dspring.profiles.active=openshift -Dorg.kie.server.startup.strategy=LocalContainersStartupStrategy -Dorg.kie.server.id=new-hire-service -Dorg.kie.server.mode=PRODUCTION -Dkie.maven.settings.custom=/deployments/maven/repository/settings.xml -Dorg.guvnor.m2repo.dir=/deployments/maven/repository"
+            - name: M2_HOME
+              value: "/deployments/maven/repository"
+            - name: HTTP_PROXY
+              value: ""
+            - name: HTTPS_PROXY
+              value: ""
+            - name: http_proxy
+              value: ""
+            - name: https_proxy
+              value: ""
+            - name: GC_MAX_METASPACE_SIZE
+              value: "512"
+          image: new-hire-service:1.0.0
+          resources:
+            requests:
+              cpu: "1000m"
+              memory: 1Gi
+            limits:
+              cpu: "1000m"
+              memory: 1Gi
+          name: new-hire-service
+          volumeMounts:
+            - mountPath: /deployments/new-hire-service.xml
+              name: kie-server-state-volume
+              subPath: new-hire-service.xml
+            - mountPath: /deployments/maven/repository/settings.xml
+              name: mvn-settings-volume
+              subPath: settings.xml
+      volumes:
+        - configMap:
+            defaultMode: 420
+            items:
+              - key: new-hire-service.xml
+                path: new-hire-service.xml
+            name: new-hire-service-kie-server-state
+          name: kie-server-state-volume
+        - configMap:
+            defaultMode: 420
+            items:
+              - key: settings.xml
+                path: settings.xml
+            name: mvn-settings
+          name: mvn-settings-volume
+  test: false
+  triggers:
+    - type: ConfigChange
+    - imageChangeParams:
+        automatic: true
+        containerNames:
+          - new-hire-service
+        from:
+          kind: ImageStreamTag
+          name: 'new-hire-service:1.0.0'
+          namespace: new-hire
+      type: ImageChange
