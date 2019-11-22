@@ -184,21 +184,21 @@ A custom rest endpoint, registered under path /rest/pam is available and it adds
 
 ```bash
   cd new-hire-service
-  mvn spring-boot:run -Dorg.kie.server.startup.strategy=LocalContainersStartupStrategy
+  mvn spring-boot:run -Dorg.kie.server.startup.strategy=LocalContainersStartupStrategy -Dspring.profiles.active=h2 -Dorg.kie.server.id=new-hire-service
 ```
 
 ### Run a kie-server and deploy a kjar with mysql dbms
 
 ```bash
   cd new-hire-service
-  mvn spring-boot:run -Dorg.kie.server.startup.strategy=LocalContainersStartupStrategy -Dspring.profiles.active=mysql
+  mvn spring-boot:run -Dorg.kie.server.startup.strategy=LocalContainersStartupStrategy -Dspring.profiles.active=mysql -Dorg.kie.server.id=new-hire-service
 ```
 
 ### Run a kie-server and deploy a kjar with oracle dbms
 
 ```bash
   cd new-hire-service
-  mvn spring-boot:run -Dorg.kie.server.startup.strategy=LocalContainersStartupStrategy -Dspring.profiles.active=oracle
+  mvn spring-boot:run -Dorg.kie.server.startup.strategy=LocalContainersStartupStrategy -Dspring.profiles.active=oracle -Dorg.kie.server.id=new-hire-service
 ```
 
 ### Prometheus metrics
