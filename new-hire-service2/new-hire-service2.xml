@@ -1,19 +1,7 @@
 <kie-server-state>
-  <controllers>
-    <string></string>
-  </controllers>
+  <controllers/>
   <configuration>
     <configItems>
-      <config-item>
-        <name>org.kie.server.controller.user</name>
-        <value>controllerUser</value>
-        <type>java.lang.String</type>
-      </config-item>
-      <config-item>
-        <name>org.kie.server.controller.pwd</name>
-        <value>controllerUser</value>
-        <type>java.lang.String</type>
-      </config-item>
       <config-item>
         <name>org.kie.server.user</name>
         <value>executionUser</value>
@@ -31,12 +19,17 @@
       </config-item>
       <config-item>
         <name>org.kie.server.id</name>
-        <value>new-hire-service</value>
+        <value>new-hire-service2</value>
         <type>java.lang.String</type>
       </config-item>
       <config-item>
         <name>org.kie.server.location</name>
         <value></value>
+        <type>java.lang.String</type>
+      </config-item>
+      <config-item>
+        <name>org.kie.server.router</name>
+        <value>http://localhost:9000</value>
         <type>java.lang.String</type>
       </config-item>
       <config-item>
@@ -48,11 +41,11 @@
   </configuration>
   <containers>
     <container>
-      <containerId>com.redhat:new-hire:1.0.0</containerId>
+      <containerId>com.redhat:new-hire:1.0.1</containerId>
       <releaseId>
         <groupId>com.redhat</groupId>
         <artifactId>new-hire</artifactId>
-        <version>1.0.0</version>
+        <version>1.0.1</version>
       </releaseId>
       <status>STARTED</status>
       <scanner>
@@ -81,7 +74,7 @@
         </config-item>
       </configItems>
       <messages/>
-      <containerAlias></containerAlias>
+      <containerAlias>newhire</containerAlias>
     </container>
   </containers>
 </kie-server-state>
