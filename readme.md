@@ -213,6 +213,14 @@ A custom rest endpoint, registered under path /rest/pam is available and it adds
 Process instances and human tasks basic metrics are exposed using prometheus; they are available at url:<br>
 http://localhost:8090/metrics
 
+### Swagger
+
+Swagger is available at:
+http://localhost:8090/rest/api-docs
+
+load the json definition:
+http://localhost:8090/rest/swagger.json
+
 ### Postman collection
 
 A postman collection named postman.json for testing the API is available inside postman directory.
