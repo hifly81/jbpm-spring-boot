@@ -184,28 +184,28 @@ A custom rest endpoint, registered under path /rest/pam is available and it adds
 
 ```bash
   cd new-hire-service
-  mvn spring-boot:run -Dorg.kie.server.startup.strategy=LocalContainersStartupStrategy -Dspring.profiles.active=h2 -Dorg.kie.server.id=new-hire-service
+  mvn spring-boot:run -Dorg.kie.server.startup.strategy=LocalContainersStartupStrategy -Dspring.profiles.active=h2 -Dorg.kie.server.id=new-hire-service -Ph2
 ```
 
 ### Run a kie-server and deploy a kjar with mysql dbms
 
 ```bash
   cd new-hire-service
-  mvn spring-boot:run -Dorg.kie.server.startup.strategy=LocalContainersStartupStrategy -Dspring.profiles.active=mysql -Dorg.kie.server.id=new-hire-service
+  mvn spring-boot:run -Dorg.kie.server.startup.strategy=LocalContainersStartupStrategy -Dspring.profiles.active=mysql -Dorg.kie.server.id=new-hire-service -Pmysql
 ```
 
 ### Run a kie-server and deploy a kjar with postgres dbms
 
 ```bash
   cd new-hire-service
-  mvn spring-boot:run -Dorg.kie.server.startup.strategy=LocalContainersStartupStrategy -Dspring.profiles.active=postgres -Dorg.kie.server.id=new-hire-service
+  mvn spring-boot:run -Dorg.kie.server.startup.strategy=LocalContainersStartupStrategy -Dspring.profiles.active=postgres -Dorg.kie.server.id=new-hire-service -Ppostgres
 ```
 
 ### Run a kie-server and deploy a kjar with oracle dbms
 
 ```bash
   cd new-hire-service
-  mvn spring-boot:run -Dorg.kie.server.startup.strategy=LocalContainersStartupStrategy -Dspring.profiles.active=oracle -Dorg.kie.server.id=new-hire-service
+  mvn spring-boot:run -Dorg.kie.server.startup.strategy=LocalContainersStartupStrategy -Dspring.profiles.active=oracle -Dorg.kie.server.id=new-hire-service -Poracle
 ```
 
 ### Prometheus metrics

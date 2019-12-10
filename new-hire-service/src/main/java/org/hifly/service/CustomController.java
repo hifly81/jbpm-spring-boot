@@ -1,6 +1,7 @@
 package org.hifly.service;
 
 import io.swagger.annotations.*;
+import org.jbpm.services.api.ProcessService;
 import org.jbpm.services.api.UserTaskService;
 import org.kie.api.task.model.Status;
 import org.kie.api.task.model.Task;
@@ -8,12 +9,11 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import java.util.Arrays;
+import java.util.List;
 
 @Api(value = "Additional Endpoints", produces = MediaType.APPLICATION_JSON)
 @Path("pam")
@@ -24,6 +24,12 @@ public class CustomController {
 
     @Autowired
     private UserTaskService userTaskService;
+
+    @Autowired
+    private ProcessService processService;
+
+    @Autowired
+    private ProcessUtilService processUtilService;
 
 
     @ApiOperation(value = "Complete a task in Ready or Reserved state")
@@ -50,6 +56,21 @@ public class CustomController {
             }
         }
 
+        return Response.ok().build();
+    }
+
+    @GET
+    @Path(value = "/variables")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getProcessVaribles() {
+        List<String> keys = Arrays.asList("CC", "12345");
+        ProcessInstanceInfo processInstanceInfo;
+        try {
+            processInstanceInfo = processUtilService.getProcessInstance(processService, null, keys, true);
+            LOGGER.info(processInstanceInfo.toString());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         return Response.ok().build();
     }
 
