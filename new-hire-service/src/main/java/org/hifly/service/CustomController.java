@@ -2,6 +2,7 @@ package org.hifly.service;
 
 import io.swagger.annotations.*;
 import org.jbpm.services.api.ProcessService;
+import org.jbpm.services.api.RuntimeDataService;
 import org.jbpm.services.api.UserTaskService;
 import org.kie.api.task.model.Status;
 import org.kie.api.task.model.Task;
@@ -30,6 +31,9 @@ public class CustomController {
 
     @Autowired
     private ProcessUtilService processUtilService;
+
+    @Autowired
+    private RuntimeDataService runtimeDataService;
 
 
     @ApiOperation(value = "Complete a task in Ready or Reserved state")
@@ -66,7 +70,7 @@ public class CustomController {
         List<String> keys = Arrays.asList("CC", "12345");
         ProcessInstanceInfo processInstanceInfo;
         try {
-            processInstanceInfo = processUtilService.getProcessInstance(processService, null, keys, true);
+            processInstanceInfo = processUtilService.getProcessInstance(processService, runtimeDataService,null, keys, true);
             LOGGER.info(processInstanceInfo.toString());
         } catch (Exception e) {
             e.printStackTrace();
