@@ -64,10 +64,10 @@ public class CustomController {
     }
 
     @GET
-    @Path(value = "/variables")
+    @Path(value = "/variablesByBusinessKeys/{bkeys}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response getProcessVaribles() {
-        List<String> keys = Arrays.asList("CC", "12345");
+    public Response getProcessVaribles(@PathParam("bkeys") String bkeys) {
+        List<String> keys = Arrays.asList(bkeys.split(","));
         ProcessInstanceInfo processInstanceInfo;
         try {
             processInstanceInfo = processUtilService.getProcessInstance(processService, runtimeDataService,null, keys, true);

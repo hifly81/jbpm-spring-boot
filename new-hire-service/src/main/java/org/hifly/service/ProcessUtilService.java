@@ -59,7 +59,6 @@ public class ProcessUtilService {
 
     public ProcessInstanceInfo getProcessInstance(ProcessService processService, RuntimeDataService runtimeDataService, String deploymentId, List<String> businessKeys, boolean getProcessVariables) throws Exception{
         return getProcessInstance(processService, runtimeDataService, deploymentId, null, generateCorrelationKey(businessKeys),getProcessVariables);
-        //return getProcessInstance(processService, deploymentId, 1l, getProcessVariables);
     }
 
     private CorrelationKey generateCorrelationKey(List<String> businessKeys) {
