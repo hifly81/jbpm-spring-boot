@@ -100,36 +100,6 @@ http://grafana.example.com
 
 Configure your host file (or DNS) for domain .example.com.
 
-Grafana dashboard for kie server will look like:<br>
-This is an image showing the BPMN process:
-![ScreenShot 1](images/kieserver.png)
-
-### Prometheus metrics
-
-Process instances and human tasks basic metrics are exposed using prometheus; they are available at url:<br>
-http://new-hire-service.example.com/metrics
-
-Prometheus is already configured to scrape these metrics; verify at url:<br>
-http://prometheus.example.com/targets
-
-This is the list of metrics for kie server available:
- - Number of process instances (kie_server_process_instances)
- - Number of process instances active (kie_server_process_instances_active)
- - Number of process instances pending (kie_server_process_instances_pending)
- - Number of process instances suspended (kie_server_process_instances_suspended)
- - Number of process instances aborted (kie_server_process_instances_aborted)
- - Number of process instances completed (kie_server_process_instances_completed)
- - Number of tasks (kie_server_tasks)
- - Number of created tasks (kie_server_tasks_created)
- - Number of ready tasks (kie_server_tasks_ready)
- - Number of reserved tasks (kie_server_tasks_reserved)
- - Number of inprogress tasks (kie_server_tasks_inprogress)
- - Number of suspended tasks (kie_server_tasks_suspended)
- - Number of completed tasks (kie_server_tasks_completed)
- - Number of failed tasks (kie_server_tasks_failed)
- - Number of error tasks (kie_server_tasks_error)
- - Number of exited tasks (kie_server_tasks_exited)
- - Number of obsolete tasks (kie_server_tasks_obsolete)   
 
 ### Postman collection
 
@@ -141,7 +111,7 @@ cd new-hire-service/postman
 
 ## Local Environment installation
 
-### Prerequisites
+### Prerequisites (if you want monitoring via business central)
 
 You need an existing PAM business central listening at localhost:8080 (for monitoring the kie server).<br>
 You need to define these two properties for the business central in order to monitor the kie-server:
