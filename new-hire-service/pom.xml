@@ -11,12 +11,12 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.1.1.RELEASE</version>
+        <version>2.2.2.RELEASE</version>
     </parent>
 
     <properties>
-        <!-- Enterprise Version 7.3.1 -->
-        <version.org.kie>7.18.0.Final-redhat-00004</version.org.kie>
+        <!-- Enterprise Version 7.7.1 -->
+        <version.org.kie>7.33.0.Final-redhat-00003</version.org.kie>
         <narayana.version>5.9.0.Final</narayana.version>
         <fabric8.version>3.5.40</fabric8.version>
         <fabric8-maven-plugin.version>3.5.38</fabric8-maven-plugin.version>
@@ -39,33 +39,12 @@
             <version>${version.org.kie}</version>
         </dependency>
 
-        <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-core</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-databind</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-annotations</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>com.fasterxml.jackson.dataformat</groupId>
-            <artifactId>jackson-dataformat-xml</artifactId>
-        </dependency>
-
         <!-- Swagger -->
         <dependency>
             <groupId>org.apache.cxf</groupId>
             <artifactId>cxf-rt-rs-service-description-swagger</artifactId>
-            <version>3.1.11</version>
+            <version>3.2.6</version>
         </dependency>
-
         <dependency>
             <groupId>io.swagger</groupId>
             <artifactId>swagger-jaxrs</artifactId>

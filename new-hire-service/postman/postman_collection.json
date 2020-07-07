@@ -1,0 +1,618 @@
+{
+	"info": {
+		"_postman_id": "4e13c506-8758-429c-be90-bd8f9c6098e8",
+		"name": "New Hire",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Process Definitions",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "executionUser",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "executionUser",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8090/rest/server/containers/com.redhat:new-hire:1.0.0/processes/definitions/new-hire/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"rest",
+						"server",
+						"containers",
+						"com.redhat:new-hire:1.0.0",
+						"processes",
+						"definitions",
+						"new-hire",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Process Instances ",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "executionUser",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "executionUser",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8090/rest/server/queries/processes/instances",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"rest",
+						"server",
+						"queries",
+						"processes",
+						"instances"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Smart Router - Process Instances ",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "executionUser",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "executionUser",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/xml"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:9000/queries/processes/instances",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"queries",
+						"processes",
+						"instances"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Smart Router - Task List",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "executionUser",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "executionUser",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:9000/queries/tasks/instances/pot-owners",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"queries",
+						"tasks",
+						"instances",
+						"pot-owners"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Smart Router - Start",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "executionUser",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "executionUser",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:9000/containers/newhire/processes/new-hire/instances",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"containers",
+						"newhire",
+						"processes",
+						"new-hire",
+						"instances"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Task List",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "executionUser",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "executionUser",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8010/rest/server/queries/tasks/instances/pot-owners",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8010",
+					"path": [
+						"rest",
+						"server",
+						"queries",
+						"tasks",
+						"instances",
+						"pot-owners"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List Containers",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "executionUser",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "executionUser",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8090/rest/server/containers",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"rest",
+						"server",
+						"containers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Start",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "executionUser",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "executionUser",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8090/rest/server/containers/com.redhat:new-hire:1.0.0/processes/new-hire/instances",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"rest",
+						"server",
+						"containers",
+						"com.redhat:new-hire:1.0.0",
+						"processes",
+						"new-hire",
+						"instances"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Start By Correlation Key",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "executionUser",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "executionUser",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8090/rest/server/containers/com.redhat:new-hire:1.0.0/processes/new-hire/instances/correlation/CC:12345",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"rest",
+						"server",
+						"containers",
+						"com.redhat:new-hire:1.0.0",
+						"processes",
+						"new-hire",
+						"instances",
+						"correlation",
+						"CC:12345"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Abort",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "executionUser",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "executionUser",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8090/rest/server/containers/com.redhat:new-hire:1.0.0/processes/instances/252",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"rest",
+						"server",
+						"containers",
+						"com.redhat:new-hire:1.0.0",
+						"processes",
+						"instances",
+						"252"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Task complete",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "executionUser",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "executionUser",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{}\n"
+				},
+				"url": {
+					"raw": "http://localhost:8090/rest/pam/tasks/1/user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"rest",
+						"pam",
+						"tasks",
+						"1",
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Signal",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "executionUser",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "executionUser",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"content\": \"test, gio\"\n}\n"
+				},
+				"url": {
+					"raw": "http://localhost:8090/rest/server/containers/com.redhat:new-hire:1.0.0/processes/instances/1/signal/wait_checks",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"rest",
+						"server",
+						"containers",
+						"com.redhat:new-hire:1.0.0",
+						"processes",
+						"instances",
+						"1",
+						"signal",
+						"wait_checks"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Variables",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "executionUser",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "executionUser",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{}\n"
+				},
+				"url": {
+					"raw": "http://localhost:8090/rest/pam/variables",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"rest",
+						"pam",
+						"variables"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
