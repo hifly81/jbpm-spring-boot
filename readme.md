@@ -18,87 +18,27 @@ You need the OpenShift CLI (oc command) on your machine in order to use the laun
 
 You need Docker on your machine to build the images.
 
-### Install on OpenShift
+### Openshift installation
 
-When deployed on OpenShift, you will have a complete namespace with:<br>
- - Business Central
- - Kie Server
- - Prometheus, grabbing Kie Server metrics
- - Grafana, showing Kie Server Dashboard
+Deployment on OpenShift has been perfomed using the maven fabric8 plugin; openshift resources are into folder: *src/main/fabric8*:
 
-The bash script new-hire-service/openshift/launch.sh will create an OpenShift project named "new-hire"
-
-You only need the OpenShift admin node url, an Openshift user and the endpoint of the Openshift registry.
-
-You can get the OpenShift registry address from the default namespace:
+Image Build:
 
 ```bash
-oc project default
-oc get svc
-NAME              TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)                   AGE
-docker-registry   ClusterIP   172.30.1.1      <none>        5000/TCP                  59d
+mvn fabric8:build -Dfabric8.namespace=${build_environment}
 ```
 
-Open the file new-hire-service/openshift/launch.sh and modify the properties:<br><br>
-ocp_admin_url= --> ocp master url, example: localhost:8443<br>
-ocp_docker_registry= --> ocp registry host and port, example: 172.30.1.1:5000<br>
-ocp_user= --> ocp user, example: developer
-
-according with your values.
-
-Business central image is based on official Red Hat Process Automatation Manager Business Central image:<br>
-https://registry.access.redhat.com/rhpam-7/rhpam72-businesscentral-openshift
-
-Kie server image is based on a standard openjdk image.
-
-Promethues image is taken form Red Hat Container Catalog:<br>
-https://access.redhat.com/containers/?tab=overview#/registry.access.redhat.com/openshift3/prometheus
-
-Grafana image is taken from:<br>
-https://hub.docker.com/r/wkulhanek/grafana/
-
-Launch the bootstrap script to create your namespace:
+Generate & Apply DeploymentConfig:
 
 ```bash
-cd new-hire-service/openshift/
-./launch.sh
+mvn fabric8:resource fabric8:resource-apply -Dfabric8.openshift.enableAutomaticTrigger=false -Dfabric8.openshift.imageChangeTrigger=false -Dfabric8.namespace=${deploy_environment} -Dfabric8.generator.name=docker-registry.default.svc:5000/${build_environment}/${service_name}:1.0.0
 ```
 
-When completed, verify that your cluster contains the following pods with state Running:
+Deploy to OpenShift:
 
 ```bash
-oc get pods
-NAME                            READY     STATUS    RESTARTS   AGE
-grafana-1-t7m5x                 1/1       Running   0          1m
-jbpm-console-new-hire-1-xbp4h   1/1       Running   0          1m
-new-hire-service-1-g7ml9        1/1       Running   0          1m
-prometheus-1-dgbnq              1/1       Running   0          1m
+oc rollout latest dc/${deploy_config} -n ${deploy_environment}
 ```
-
-Verify that the following routes are created:
-
-```bash
-oc get routes
-NAME                    HOST/PORT                      PATH      SERVICES                PORT      TERMINATION   WILDCARD
-grafana                 ClusterIP   172.30.137.176   <none>        3000/TCP                              1m
-jbpm-console-new-hire   ClusterIP   172.30.196.143   <none>        8001/TCP,8080/TCP,8443/TCP,8778/TCP   2m
-new-hire-service        ClusterIP   172.30.87.180    <none>        8090/TCP                              1m
-prometheus              ClusterIP   172.30.170.212   <none>        9090/TCP                              1m
-```
-
-Business central (user/user) will be available at url:<br>
-http://business-central.example.com
-
-Kie server (user/user) will be available at url:<br>
-http://new-hire-service.example.com
-
-Prometheus will be available at url:<br>
-http://prometheus.example.com
-
-Grafana (admin/admin) will be available at url:<br>
-http://grafana.example.com
-
-Configure your host file (or DNS) for domain .example.com.
 
 
 ### Postman collection
