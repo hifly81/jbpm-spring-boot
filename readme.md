@@ -184,34 +184,34 @@ A custom rest endpoint, registered under path /rest/pam is available and it adds
 
 ```bash
   cd new-hire-service
-  mvn spring-boot:run -Dorg.kie.server.startup.strategy=LocalContainersStartupStrategy -Dspring.profiles.active=h2 -Dorg.kie.server.id=new-hire-service -Ph2
+  mvn clean install && mvn spring-boot:run -Dspring-boot.run.fork=false -Dorg.kie.server.startup.strategy=LocalContainersStartupStrategy -Dspring.profiles.active=h2 -Ph2
 ```
 
 ### Run a kie-server and deploy a kjar with mysql dbms
 
 ```bash
   cd new-hire-service
-  mvn spring-boot:run -Dorg.kie.server.startup.strategy=LocalContainersStartupStrategy -Dspring.profiles.active=mysql -Dorg.kie.server.id=new-hire-service -Pmysql
+  mvn clean install && mvn spring-boot:run -Dspring-boot.run.fork=false -Dorg.kie.server.startup.strategy=LocalContainersStartupStrategy -Dspring.profiles.active=mysql -Pmysql
 ```
 
 ### Run a kie-server and deploy a kjar with postgres dbms
 
 ```bash
   cd new-hire-service
-  mvn spring-boot:run -Dorg.kie.server.startup.strategy=LocalContainersStartupStrategy -Dspring.profiles.active=postgres -Dorg.kie.server.id=new-hire-service -Ppostgres
+  mvn clean install && mvn spring-boot:run -Dspring-boot.run.fork=false -Dorg.kie.server.startup.strategy=LocalContainersStartupStrategy -Dspring.profiles.active=postgres -Ppostgres
 ```
 
 ### Run a kie-server and deploy a kjar with oracle dbms
 
 ```bash
   cd new-hire-service
-  mvn spring-boot:run -Dorg.kie.server.startup.strategy=LocalContainersStartupStrategy -Dspring.profiles.active=oracle -Dorg.kie.server.id=new-hire-service -Poracle
+  mvn clean install && mvn spring-boot:run -Dspring-boot.run.fork=false -Dorg.kie.server.startup.strategy=LocalContainersStartupStrategy -Dspring.profiles.active=oracle -Poracle
 ```
 
 ### Prometheus metrics
 
 Process instances and human tasks basic metrics are exposed using prometheus; they are available at url:<br>
-http://localhost:8090/metrics
+http://localhost:8090/rest/metrics
 
 ### Swagger
 
@@ -219,7 +219,7 @@ Swagger is available at:
 http://localhost:8090/rest/api-docs
 
 load the json definition:
-http://localhost:8090/rest/swagger.json
+http://localhost:8090/rest/api-docs?url=http://localhost:8090/rest/swagger.json
 
 ### Postman collection
 
