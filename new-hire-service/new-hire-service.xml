@@ -1,6 +1,6 @@
 <kie-server-state>
   <controllers>
-    <string></string>
+    <string>http://localhost:8080/rest/controller</string>
   </controllers>
   <configuration>
     <configItems>
@@ -11,7 +11,7 @@
       </config-item>
       <config-item>
         <name>org.kie.server.controller.pwd</name>
-        <value>controllerUser</value>
+        <value>controllerUser1234</value>
         <type>java.lang.String</type>
       </config-item>
       <config-item>
@@ -26,7 +26,7 @@
       </config-item>
       <config-item>
         <name>org.kie.server.location</name>
-        <value></value>
+        <value>http://localhost:8090/rest/server</value>
         <type>java.lang.String</type>
       </config-item>
       <config-item>
