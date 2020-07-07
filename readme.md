@@ -41,14 +41,6 @@ oc rollout latest dc/${deploy_config} -n ${deploy_environment}
 ```
 
 
-### Postman collection
-
-A postman collection named postman_openshift.json for testing the API is available inside postman directory.
-
-```bash
-cd new-hire-service/postman
-```
-
 ## Local Environment installation
 
 ### Prerequisites (if you want monitoring via business central)
@@ -84,7 +76,6 @@ You can configure the user/password to connect with the controller (Business Cen
  org.kie.server.controller.user=<user>
  org.kie.server.controller.pwd=<password>
 ```
-
 
 ### Custom Rest endpoint
 
