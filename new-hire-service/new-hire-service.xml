@@ -1,6 +1,6 @@
 <kie-server-state>
   <controllers>
-    <string>http://localhost:8080/rest/controller</string>
+    <string></string>
   </controllers>
   <configuration>
     <configItems>
